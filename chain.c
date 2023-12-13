@@ -83,7 +83,7 @@ int replacing_alias(details_t *details)
 
 	for (q = 0; q < 10; q++)
 	{
-		node = node_starts_with(details->alias, details->argv[0], '=');
+		node = find_node_starts_with(details->alias, details->argv[0], '=');
 		if (!node)
 			return (0);
 		free(details->argv[0]);
@@ -126,7 +126,7 @@ int replacing_vars(details_t *details)
 				_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(details->env, &details->argv[k][1], '=');
+		node = find_node_starts_with(details->env, &details->argv[k][1], '=');
 		if (node)
 		{
 			replace_string(&(details->argv[k]),
