@@ -166,7 +166,7 @@ void free_list(list_t **head_ptr)
 
 /**
  * list_len - determines length of linked list
- * @head: pointer to first node
+ * @h: pointer to first node
  *
  * Return: size of list
  */
