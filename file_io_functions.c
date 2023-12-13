@@ -78,7 +78,7 @@ int reading_history(details_t *details)
 	if (fsize < 2)
 		return (0);
 	buff = malloc(sizeof(char) * (fsize + 1));
-	if (!buf)
+	if (!buff)
 		return (0);
 	rdlen = read(fdescrip, buff, fsize);
 	buff[fsize] = 0;
