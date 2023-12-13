@@ -39,8 +39,8 @@ void setting_info(details_t *details, char **argvec)
 			;
 		details->argc = f;
 
-		replace_alias(details);
-		replace_vars(details);
+		replacing_alias(details);
+		replacing_vars(details);
 	}
 }
 
@@ -51,7 +51,7 @@ void setting_info(details_t *details, char **argvec)
  */
 void freeing_info(details_t *details, int alls)
 {
-	ffree(details->argv);
+	_free(details->argv);
 	details->argv = NULL;
 	details->path = NULL;
 	if (alls)
@@ -64,7 +64,7 @@ void freeing_info(details_t *details, int alls)
 			free_list(&(details->history));
 		if (details->alias)
 			free_list(&(details->alias));
-		ffree(details->environ);
+		_free(details->environ);
 			details->environ = NULL;
 		freeAndNull((void **)details->cmd_buf);
 		if (details->readfd > 2)
