@@ -6,7 +6,7 @@
  *          constant function prototype.
  * Return: Always 0
  */
-int _ourenv(details_t *info)
+int _ourenv(details_t *details)
 {
 	print_list_str(details->env);
 	return (0);
