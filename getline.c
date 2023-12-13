@@ -119,10 +119,10 @@ ssize_t reading_buff(details_t *details, char *buff, size_t *q)
  */
 int _getline(details_t *details, char **pntr, size_t *length)
 {
-	static char buf[READ_BUF_SIZE];
+	static char buff[READ_BUF_SIZE];
 	static size_t i, leng;
 	size_t k;
-	ssize_t r = 0, u = 0;
+	ssize_t l = 0, u = 0;
 	char *p = NULL, *new_p = NULL, *c;
 
 	p = *pntr;
@@ -135,7 +135,7 @@ int _getline(details_t *details, char **pntr, size_t *length)
 	if (l == -1 || (l == 0 && leng == 0))
 		return (-1);
 
-	c = _strchr(buf + i, '\n');
+	c = _strchr(buff + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buff) : leng;
 	new_p = _realloc(p, u, u ? u + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
