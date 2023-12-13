@@ -8,7 +8,7 @@
  *
  * Return: size of list
  */
-list_t *add_node(list_t **listHead, const char *str, int index)
+list_t *add_node(list_t **listHead, const char *str, int num)
 {
     list_t *newNode;
 
@@ -20,7 +20,7 @@ list_t *add_node(list_t **listHead, const char *str, int index)
         return (NULL);
 
     _memset((void *)newNode, 0, sizeof(list_t));
-    newNode->index = index;
+    newNode->num = num;
 
     if (str)
     {
