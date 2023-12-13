@@ -109,8 +109,8 @@ void finding_cmd(details_t *details)
 	else
 	{
 		if ((interactive(details) || _getenv(details, "PATH=")
-			|| details->argv[0][0] == '/') && is_commmand(details, details->argv[0]))
-			fork_cmd(info);
+			|| details->argv[0][0] == '/') && is_command(details, details->argv[0]))
+			forking_cmd(details);
 		else if (*(details->arg) != '\n')
 		{
 			details->status = 127;
