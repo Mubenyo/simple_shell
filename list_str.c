@@ -85,18 +85,18 @@ list_t *add_node_end(list_t **listHead, const char *str, int num)
  *
  * Return: size of list
  */
-size_t print_str_list(const list_t *listHead)
+size_t print_list_str(const list_t *h)
 {
-    size_t count = 0;
+	size_t i = 0;
 
-    while (listHead)
-    {
-        _puts(listHead->str ? listHead->str : "(nil)");
-        _puts("\n");
-        listHead = listHead->next;
-        count++;
-    }
-    return (count);
+	while (h)
+	{
+		_puts(h->str ? h->str : "(nil)");
+		_puts("\n");
+		h = h->next;
+		i++;
+	}
+	return (i);
 }
 
 
