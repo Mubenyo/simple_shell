@@ -32,8 +32,8 @@ ssize_t inputing_buff(details_t *details, char **buff, size_t *leng)
 				t--;
 			}
 			details->linecount_flag = 1;
-			remove_comments(*buff);
-			build_history_list(details, *buff, details->histcount++);
+			rm_comments(*buff);
+			building_history_list(details, *buff, details->histcount++);
 			/* if (_strchr(*buff, ';')) is this a command chain? */
 			{
 				*leng = t;
@@ -58,7 +58,7 @@ ssize_t getting_input(details_t *details)
 	char **buff_d = &(details->arg), *d;
 
 	_putchar(BUF_FLUSH);
-	v = input_buf(details, &buff, &leng);
+	v = inputing_buff(details, &buff, &leng);
 	if (v == -1) /* EOF */
 		return (-1);
 	if (leng)	/* we have commands left in the chain buffer */
@@ -66,7 +66,7 @@ ssize_t getting_input(details_t *details)
 		n = m; /* init new iterator to current buff position */
 		d = buff + m; /* get pointer for return */
 
-		check_chain(details, buff, &n, m, leng);
+		checking_chain(details, buff, &n, m, leng);
 		while (n < leng) /* iterate to semicolon or end */
 		{
 			if (is_chain(details, buff, &n))
