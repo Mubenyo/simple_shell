@@ -11,7 +11,7 @@ char *getting_history_file(details_t *details)
 {
 	char *buff, *dirr;
 
-	dir = _getenv(details, "HOME=");
+	dirr = _getenv(details, "HOME=");
 	if (!dirr)
 		return (NULL);
 	buff = malloc(sizeof(char) * (_strlen(dirr) + _strlen(HIST_FILE) + 2));
@@ -48,7 +48,7 @@ int writing_history(details_t *details)
 		_putsfd(node->str, fdescrip);
 		_putfd('\n', fdescrip);
 	}
-	_putfdescrip(BUF_FLUSH, fdescrip);
+	_putfd(BUF_FLUSH, fdescrip);
 	close(fdescrip);
 	return (1);
 }
@@ -77,7 +77,7 @@ int reading_history(details_t *details)
 		fsize = st.st_size;
 	if (fsize < 2)
 		return (0);
-	buf = malloc(sizeof(char) * (fsize + 1));
+	buff = malloc(sizeof(char) * (fsize + 1));
 	if (!buf)
 		return (0);
 	rdlen = read(fdescrip, buff, fsize);
@@ -89,16 +89,16 @@ int reading_history(details_t *details)
 		if (buff[f] == '\n')
 		{
 			buff[f] = 0;
-			build_history_list(details, buff + last, linecount++);
+			building_history_list(details, buff + last, linecount++);
 			last = f + 1;
 		}
 	if (last != f)
-		build_history_list(details, buff + last, linecount++);
+		building_history_list(details, buff + last, linecount++);
 	free(buff);
 	details->histcount = linecount;
 	while (details->histcount-- >= HIST_MAX)
 		delete_node_at_index(&(details->history), 0);
-	renumber_history(details);
+	renumbering_history(details);
 	return (details->histcount);
 }
 
