@@ -150,7 +150,7 @@ char **strtowords2(char *, char);
 char *_memset(char *, char, unsigned int);
 void _free(char **);
 void *_realloc(void *, unsigned int, unsigned int);
-int freeandNull(void **);
+int freeAndNull(void **);
 
 /* more_functions.c */
 int interactive(details_t *);
