@@ -73,8 +73,8 @@ int _ourcd(details_t *details)
 	}
 	else
 	{
-		_setenv(details, "OLDPWD", _getenv(details, "PWD="));
-		_setenv(details, "PWD", getcwd(buffer, 1024));
+		_setsenv(details, "OLDPWD", _getenv(details, "PWD="));
+		_setsenv(details, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);
 }
