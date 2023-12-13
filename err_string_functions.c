@@ -37,7 +37,7 @@ int _eputchar(char b)
 		j = 0;
 	}
 	if (b != BUF_FLUSH)
-		buff[i++] = b;
+		buff[j++] = b;
 	return (1);
 }
 
