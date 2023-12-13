@@ -69,7 +69,7 @@ int _ourunsetenv(details_t *details)
 		return (1);
 	}
 	for (j = 1; j <= details->argc; j++)
-		_unsetenv(details, details->argv[j]);
+		_envunset(details, details->argv[j]);
 
 	return (0);
 }
