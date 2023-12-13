@@ -117,13 +117,13 @@ int replacing_vars(details_t *details)
 		if (!_strcmp(details->argv[k], "$?"))
 		{
 			replacing_string(&(details->argv[k]),
-				_strdup(convert_number(details->status, 10, 0)));
+				_strdup(convert_num(details->status, 10, 0)));
 			continue;
 		}
 		if (!_strcmp(details->argv[k], "$$"))
 		{
 			replacing_string(&(details->argv[k]),
-				_strdup(convert_number(getpid(), 10, 0)));
+				_strdup(convert_num(getpid(), 10, 0)));
 			continue;
 		}
 		node = find_node_starts_with(details->env, &details->argv[k][1], '=');
