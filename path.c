@@ -74,7 +74,7 @@ char *find_path(details_t *info, char *pathstr, char *cmd)
 				_strcat(path, "/");
 				_strcat(path, cmd);
 			}
-			if (is_cmd(info, path))
+			if (is_command(info, path))
 				return (path);
 			if (!pathstr[i])
 				break;
