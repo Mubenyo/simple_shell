@@ -88,7 +88,7 @@ char *_strcpy(char *destination, char *source)
 
 	if (destination == source || source == 0)
 		return (destination);
-	while (sourcr[index])
+	while (source[index])
 	{
 		destination[index] = source[index];
 		index++;
@@ -106,7 +106,7 @@ char *_strcpy(char *destination, char *source)
 char *_strdup(const char *str)
 {
 	int length = 0;
-	char *resultt;
+	char *result;
 
 	if (str == NULL)
 		return (NULL);
