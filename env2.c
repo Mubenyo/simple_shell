@@ -70,7 +70,7 @@ int _setsenv(details_t *details, char *strvar, char *strvalue)
 	buff = malloc(_strlen(strvar) + _strlen(strvalue) + 2);
 	if (!buff)
 		return (1);
-	_strcpy(buff, var);
+	_strcpy(buff, strvar);
 	_strcat(buff, "=");
 	_strcat(buff, strvalue);
 	node = details->env;
