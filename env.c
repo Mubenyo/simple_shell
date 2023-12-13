@@ -48,7 +48,7 @@ int _oursetenv(details_t *details)
 		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_setenv(details, details->argv[1], details->argv[2]))
+	if (_setsenv(details, details->argv[1], details->argv[2]))
 		return (0);
 	return (1);
 }
@@ -69,7 +69,7 @@ int _ourunsetenv(details_t *details)
 		return (1);
 	}
 	for (j = 1; j <= details->argc; j++)
-		_unsetenv(details, details->argv[j]);
+		unsetenv(details, details->argv[j]);
 
 	return (0);
 }
