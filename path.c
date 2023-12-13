@@ -7,7 +7,7 @@
  *
  * Return: 1 if true, 0 otherwise
  */
-int is_command(info_t *info_struct, char *file_path)
+int is_command(details_t *info_struct, char *file_path)
 {
     struct stat file_stat;
 
