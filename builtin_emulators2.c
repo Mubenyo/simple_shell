@@ -3,24 +3,24 @@
 /**
  * _ourhistory - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
- * @info: Structure containing potential arguments. Used to maintain
+ * @details: Structure containing potential arguments. Used to maintain
  *        constant function prototype.
  *  Return: Always 0
  */
-int _ourhistory(info_t *info)
+int _ourhistory(details_t *details)
 {
-	print_list(info->history);
+	print_list(details->history);
 	return (0);
 }
 
 /**
  * unsetting_alias - sets alias to string
- * @info: parameter struct
+ * @details: parameter struct
  * @strr: the string alias
  *
  * Return: Always 0 on success, 1 on error
  */
-int unsetting_alias(info_t *info, char *strr)
+int unsetting_alias(details_t *details, char *strr)
 {
 	char *q, d;
 	int rett;
@@ -30,20 +30,20 @@ int unsetting_alias(info_t *info, char *strr)
 		return (1);
 	d = *q;
 	*q = 0;
-	rett = delete_node_at_index(&(info->alias),
-		get_node_index(info->alias, find_node_starts_with(info->alias, strr, -1)));
+	rett = delete_node_at_index(&(details->alias),
+		get_node_index(details->alias, find_node_starts_with(details->alias, strr, -1)));
 	*q = d;
 	return (rett);
 }
 
 /**
  * setting_alias - sets alias to string
- * @info: parameter struct
+ * @details: parameter struct
  * @strr: the string alias
  *
  * Return: Always 0 on success, 1 on error
  */
-int setting_alias(info_t *info, char *strr)
+int setting_alias(details_t *details, char *strr)
 {
 	char *r;
 
@@ -51,10 +51,10 @@ int setting_alias(info_t *info, char *strr)
 	if (!r)
 		return (1);
 	if (!*++r)
-		return (unsetting_alias(info, strr));
+		return (unsetting_alias(details, strr));
 
-	unsetting_alias(info, strr);
-	return (add_node_end(&(info->alias), strr, 0) == NULL);
+	unsetting_alias(details, strr);
+	return (add_node_end(&(details->alias), strr, 0) == NULL);
 }
 
 /**
@@ -82,19 +82,19 @@ int printing_alias(list_t *node)
 
 /**
  * _ouralias - mimics the alias builtin (man alias)
- * @info: Structure containing potential arguments. Used to maintain
+ * @details: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
  */
-int _ouralias(info_t *info)
+int _ouralias(details_t *details)
 {
 	int u = 0;
 	char *r = NULL;
 	list_t *node = NULL;
 
-	if (info->argc == 1)
+	if (details->argc == 1)
 	{
-		node = info->alias;
+		node = details->alias;
 		while (node)
 		{
 			printing_alias(node);
@@ -102,13 +102,13 @@ int _ouralias(info_t *info)
 		}
 		return (0);
 	}
-	for (u = 1; info->argv[u]; u++)
+	for (u = 1; details->argv[u]; u++)
 	{
-		r = _strchr(info->argv[u], '=');
+		r = _strchr(details->argv[u], '=');
 		if (r)
-			setting_alias(info, info->argv[u]);
+			setting_alias(details, details->argv[u]);
 		else
-			printing_alias(find_node_starts_with(info->alias, info->argv[u], '='));
+			printing_alias(find_node_starts_with(details->alias, details->argv[u], '='));
 	}
 
 	return (0);
