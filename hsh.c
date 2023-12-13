@@ -14,24 +14,24 @@ int msl(details_t *details, char **argvec)
 
 	while (w != -1 && builtin_ret != -2)
 	{
-		clear_info(details);
+		clearing_info(details);
 		if (interactive(details))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
 		w = get_input(details);
 		if (w != -1)
 		{
-			set_info(details, argvec);
-			builtin_ret = find_builtin(details);
+			setting_info(details, argvec);
+			builtin_ret = finding_builtin(details);
 			if (builtin_ret == -1)
-				find_cmd(details);
+				finding_cmd(details);
 		}
 		else if (interactive(details))
 			_putchar('\n');
-		free_info(details, 0);
+		freeing_info(details, 0);
 	}
-	write_history(details);
-	free_info(details, 1);
+	writing_history(details);
+	freeing_info(details, 1);
 	if (!interactive(details) && details->status)
 		exit(details->status);
 	if (builtin_ret == -2)
@@ -68,7 +68,7 @@ int finding_builtin(details_t *details)
 	};
 
 	for (k = 0; builtintbl[k].type; k++)
-		if (_strcmp(info->argv[0], builtintbl[k].type) == 0)
+		if (_strcmp(details->argv[0], builtintbl[k].type) == 0)
 		{
 			details->line_count++;
 			built_in_ret = builtintbl[k].func(details);
@@ -95,7 +95,7 @@ void finding_cmd(details_t *details)
 		details->linecount_flag = 0;
 	}
 	for (o = 0, g = 0; details->arg[o]; o++)
-		if (!is_delim(info->arg[o], " \t\n"))
+		if (!is_delim(details->arg[o], " \t\n"))
 			g++;
 	if (!g)
 		return;
@@ -104,12 +104,12 @@ void finding_cmd(details_t *details)
 	if (path)
 	{
 		details->path = path;
-		fork_cmd(details);
+		forking_cmd(details);
 	}
 	else
 	{
 		if ((interactive(details) || _getenv(details, "PATH=")
-			|| details->argv[0][0] == '/') && is_cmd(details, details->argv[0]))
+			|| details->argv[0][0] == '/') && is_commmand(details, details->argv[0]))
 			fork_cmd(info);
 		else if (*(details->arg) != '\n')
 		{
