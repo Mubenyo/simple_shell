@@ -55,7 +55,7 @@ void *_realloc(void *old_ptr, unsigned int old_size, unsigned int new_size)
     if (!new_ptr)
         return (NULL);
 
-    old_size = old_size < new
+    old_size = old_size < new_size;
 }
 
 /**
