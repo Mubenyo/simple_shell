@@ -112,7 +112,7 @@ typedef struct builtin
 
 
 /* hsh.c */
-int msl(details_t *, char **);
+int hsh(details_t *, char **);
 int finding_builtin(details_t *);
 void finding_cmd(details_t *);
 void forking_cmd(details_t *);
