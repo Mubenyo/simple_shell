@@ -66,7 +66,7 @@ void freeing_info(details_t *details, int alls)
 			free_list(&(details->alias));
 		ffree(details->environ);
 			details->environ = NULL;
-		bfree((void **)details->cmd_buf);
+		freeAndNull((void **)details->cmd_buf);
 		if (details->readfd > 2)
 			close(details->readfd);
 		_putchar(BUF_FLUSH);
