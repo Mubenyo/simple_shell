@@ -13,7 +13,7 @@ int _ourexit(details_t *details)
 
 	if (details->argv[1])
 	{
-		exitchecker = _eer_str_to_int(details->argv[1]);
+		exitchecker = err_str_to_int(details->argv[1]);
 		if (exitchecker == -1)
 		{
 			details->status = 2;
@@ -22,7 +22,7 @@ int _ourexit(details_t *details)
 			_eputchar('\n');
 			return (1);
 		}
-		details->err_num = _eer_str_to_int(details->argv[1]);
+		details->err_num = err_str_to_int(details->argv[1]);
 		return (-2);
 	}
 	details->err_num = -1;
