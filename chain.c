@@ -116,24 +116,24 @@ int replacing_vars(details_t *details)
 
 		if (!_strcmp(details->argv[k], "$?"))
 		{
-			replace_string(&(details->argv[k]),
+			replacing_string(&(details->argv[k]),
 				_strdup(convert_number(details->status, 10, 0)));
 			continue;
 		}
 		if (!_strcmp(details->argv[k], "$$"))
 		{
-			replace_string(&(details->argv[k]),
+			replacing_string(&(details->argv[k]),
 				_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
 		node = find_node_starts_with(details->env, &details->argv[k][1], '=');
 		if (node)
 		{
-			replace_string(&(details->argv[k]),
+			replacing_string(&(details->argv[k]),
 				_strdup(_strchr(node->str, '=') + 1));
 			continue;
 		}
-		replace_string(&details->argv[k], _strdup(""));
+		replacing_string(&details->argv[k], _strdup(""));
 
 	}
 	return (0);
