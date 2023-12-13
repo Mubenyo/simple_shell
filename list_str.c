@@ -46,7 +46,7 @@ list_t *add_node(list_t **listHead, const char *str, int num)
  *
  * Return: size of list
  */
-list_t *add_node_end(list_t **listHead, const char *str, int index)
+list_t *add_node_end(list_t **listHead, const char *str, int num)
 {
 	list_t *new_node, *node;
 
@@ -58,7 +58,7 @@ list_t *add_node_end(list_t **listHead, const char *str, int index)
 	if (!new_node)
 		return (NULL);
 	_memset((void *)new_node, 0, sizeof(list_t));
-	new_node->index = index;
+	new_node->nm = num;
 	if (str)
 	{
 		new_node->str = _strdup(str);
@@ -85,7 +85,7 @@ list_t *add_node_end(list_t **listHead, const char *str, int index)
  *
  * Return: size of list
  */
-size_t print_str_list(const str_list_t *listHead)
+size_t print_str_list(const list_t *listHead)
 {
     size_t count = 0;
 
