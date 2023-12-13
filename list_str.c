@@ -170,13 +170,13 @@ void free_list(list_t **head_ptr)
  *
  * Return: size of list
  */
-size_t list_len(const list_t *head)
+size_t list_len(const list_t *h)
 {
     size_t count = 0;
 
-    while (head)
+    while (h)
     {
-        head = head->next;
+        h = h->next;
         count++;
     }
     return (count);
@@ -188,14 +188,14 @@ size_t list_len(const list_t *head)
  *
  * Return: array of strings
  */
-char **list_to_strings(list_t *head)
+char **list_to_strings(list_t *h)
 {
-	list_t *node = head;
-	size_t i = list_len(head), j;
+	list_t *node = h;
+	size_t i = list_len(h), j;
 	char **strs;
 	char *str;
 
-	if (!head || !i)
+	if (!h || !i)
 		return (NULL);
 	strs = malloc(sizeof(char *) * (i + 1));
 	if (!strs)
@@ -225,18 +225,18 @@ char **list_to_strings(list_t *head)
  *
  * Return: size of list
  */
-size_t print_list(const list_t *head)
+size_t print_list(const list_t *h)
 {
 	size_t index = 0;
 
-	while (head)
+	while (h)
 	{
-		_puts(convert_number(head->num, 10, 0));
+		_puts(convert_num(h->num, 10, 0));
 		_putchar(':');
 		_putchar(' ');
-		_puts(head->str ? head->str : "(nil)");
+		_puts(h->str ? h->str : "(nil)");
 		_puts("\n");
-		head = head->next;
+		h = h->next;
 		index++;
 	}
 	return (index);
