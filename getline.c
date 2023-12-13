@@ -18,7 +18,7 @@ ssize_t inputing_buff(details_t *details, char **buff, size_t *leng)
 		/*bfree((void **)details->cmd_buf);*/
 		free(*buff);
 		*buff = NULL;
-		signal(SIGINT, sigintHandler);
+		signal(SIGINT, signintHandler);
 #if USE_GETLINE
 		t = getline(buff, &leng_p, stdin);
 #else
