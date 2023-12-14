@@ -9,7 +9,7 @@
 size_t list_len(const list_t *h)
 {
 	size_t count = 0;
-	
+
 	while (h)
 	{
 		h = h->next;
@@ -89,7 +89,7 @@ size_t print_list(const list_t *h)
 list_t *find_node_starts_with(list_t *c_node, char *search_prefix, char next_char)
 {
 	char *match_ptr = NULL;
-	
+
 	while (c_node)
 	{
 		match_ptr = starts_with(c_node->str, search_prefix);
@@ -110,7 +110,7 @@ list_t *find_node_starts_with(list_t *c_node, char *search_prefix, char next_cha
 ssize_t get_node_index(list_t *list_head, list_t *target_node)
 {
 	size_t index = 0;
-	
+
 	while (list_head)
 	{
 		if (list_head == target_node)
