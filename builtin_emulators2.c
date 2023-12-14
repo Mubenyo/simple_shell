@@ -108,7 +108,7 @@ int _ouralias(details_t *details)
 		if (r)
 			setting_alias(details, details->argv[u]);
 		else
-			printing_alias(find_node_starts_with(details->alias, details->argv[u], '='));
+			printing_alias(find_node_start(details->alias, details->argv[u], '='));
 	}
 
 	return (0);
