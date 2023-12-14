@@ -11,17 +11,17 @@
 list_t *add_node(list_t **listHead, const char *str, int num)
 {
 	list_t *newNode;
-	
+
 	if (!listHead)
 		return (NULL);
-	
+
 	newNode = malloc(sizeof(list_t));
 	if (!newNode)
 		return (NULL);
-	
+
 	_memset((void *)newNode, 0, sizeof(list_t));
 	newNode->num = num;
-	
+
 	if (str)
 	{
 		newNode->str = _strdup(str);
@@ -31,7 +31,7 @@ list_t *add_node(list_t **listHead, const char *str, int num)
 			return (NULL);
 		}
 	}
-	
+
 	newNode->next = *listHead;
 	*listHead = newNode;
 	return (newNode);
