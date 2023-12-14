@@ -137,11 +137,15 @@ int _strcmp(char *, char *);
 char *starts_with(const char *, const char *);
 char *_strcat(char *, char *);
 char *_strcpy(char *, char *);
+
+/* string_functions2.c */
 char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
+
+/* string_functions3.c */
 char *_strchr(char *, char);
 char **strtowords(char *, char *);
 char **strtowords2(char *, char);
