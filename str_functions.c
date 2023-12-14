@@ -72,5 +72,5 @@ char *_strcat(char *destination, char *source)
 		*destination++ = *source++;
 	*destination = *source;
 	
-	return result;
+	return (result);
 }
