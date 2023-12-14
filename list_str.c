@@ -4,7 +4,7 @@
  * add_node - adds a node to the start of the list
  * @listHead: address of pointer to head node
  * @str: str field of node
- * @index: node index used by history
+ * @num: node index used by history
  *
  * Return: size of list
  */
