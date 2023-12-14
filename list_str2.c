@@ -8,14 +8,13 @@
  */
 size_t list_len(const list_t *h)
 {
-    size_t count = 0;
-
-    while (h)
-    {
-        h = h->next;
-        count++;
-    }
-    return (count);
+	size_t count = 0;
+	while (h)
+	{
+		h = h->next;
+		count++;
+	}
+	return (count);
 }
 
 /**
@@ -88,16 +87,16 @@ size_t print_list(const list_t *h)
  */
 list_t *find_node_starts_with(list_t *current_node, char *search_prefix, char next_char)
 {
-    char *match_ptr = NULL;
-
-    while (current_node)
-    {
-        match_ptr = starts_with(current_node->str, search_prefix);
-        if (match_ptr && ((next_char == -1) || (*match_ptr == next_char)))
-            return (current_node);
-        current_node = current_node->next;
-    }
-    return (NULL);
+	char *match_ptr = NULL;
+	
+	while (current_node)
+	{
+		match_ptr = starts_with(current_node->str, search_prefix);
+		if (match_ptr && ((next_char == -1) || (*match_ptr == next_char)))
+			return (current_node);
+		current_node = current_node->next;
+	}
+	return (NULL);
 }
 
 /**
@@ -109,14 +108,14 @@ list_t *find_node_starts_with(list_t *current_node, char *search_prefix, char ne
  */
 ssize_t get_node_index(list_t *list_head, list_t *target_node)
 {
-    size_t index = 0;
-
-    while (list_head)
-    {
-        if (list_head == target_node)
-            return (index);
-        list_head = list_head->next;
-        index++;
-    }
-    return (-1);
+	size_t index = 0;
+	
+	while (list_head)
+	{
+		if (list_head == target_node)
+			return (index);
+		list_head = list_head->next;
+		index++;
+	}
+	return (-1);
 }
