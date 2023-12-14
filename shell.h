@@ -158,6 +158,8 @@ int is_delim(char, char *);
 int _isalpha(int);
 int str_to_int(char *);
 int err_str_to_int(char *);
+
+/* more_functions2.c */
 void print_error(details_t *, char *);
 int print_decimal(int, int);
 char *convert_num(long int, int, int);
