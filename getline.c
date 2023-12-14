@@ -18,7 +18,7 @@ ssize_t inputing_buff(details_t *details, char **buff, size_t *leng)
 		/*bfree((void **)details->cmd_buf);*/
 		free(*buff);
 		*buff = NULL;
-		signal(SIGINT, sigintHandler);
+		signal(SIGINT, signintHandler);
 #if USE_GETLINE
 		t = getline(buff, &leng_p, stdin);
 #else
@@ -32,8 +32,8 @@ ssize_t inputing_buff(details_t *details, char **buff, size_t *leng)
 				t--;
 			}
 			details->linecount_flag = 1;
-			remove_comments(*buff);
-			build_history_list(details, *buff, details->histcount++);
+			rm_comments(*buff);
+			building_history_list(details, *buff, details->histcount++);
 			/* if (_strchr(*buff, ';')) is this a command chain? */
 			{
 				*leng = t;
@@ -58,7 +58,7 @@ ssize_t getting_input(details_t *details)
 	char **buff_d = &(details->arg), *d;
 
 	_putchar(BUF_FLUSH);
-	v = input_buf(details, &buff, &leng);
+	v = inputing_buff(details, &buff, &leng);
 	if (v == -1) /* EOF */
 		return (-1);
 	if (leng)	/* we have commands left in the chain buffer */
@@ -66,7 +66,7 @@ ssize_t getting_input(details_t *details)
 		n = m; /* init new iterator to current buff position */
 		d = buff + m; /* get pointer for return */
 
-		check_chain(details, buff, &n, m, leng);
+		checking_chain(details, buff, &n, m, leng);
 		while (n < leng) /* iterate to semicolon or end */
 		{
 			if (is_chain(details, buff, &n))
@@ -119,10 +119,10 @@ ssize_t reading_buff(details_t *details, char *buff, size_t *q)
  */
 int _getline(details_t *details, char **pntr, size_t *length)
 {
-	static char buf[READ_BUF_SIZE];
+	static char buff[READ_BUF_SIZE];
 	static size_t i, leng;
 	size_t k;
-	ssize_t r = 0, u = 0;
+	ssize_t l = 0, u = 0;
 	char *p = NULL, *new_p = NULL, *c;
 
 	p = *pntr;
@@ -135,7 +135,7 @@ int _getline(details_t *details, char **pntr, size_t *length)
 	if (l == -1 || (l == 0 && leng == 0))
 		return (-1);
 
-	c = _strchr(buf + i, '\n');
+	c = _strchr(buff + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buff) : leng;
 	new_p = _realloc(p, u, u ? u + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */

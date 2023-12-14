@@ -34,28 +34,32 @@ void _free(char **str_arr)
 
 /**
  * _realloc - reallocates a block of memory
- * @old_ptr: pointer to previous malloc'ated block
+ * @ptr: pointer to previous malloc'ated block
  * @old_size: byte size of previous block
  * @new_size: byte size of new block
  *
- * Return: pointer to the reallocated block.
+ * Return: pointer to da ol'block nameen.
  */
-void *_realloc(void *old_ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-    char *new_ptr;
+	char *p;
 
-    if (!old_ptr)
-        return (malloc(new_size));
-    if (!new_size)
-        return (free(old_ptr), NULL);
-    if (new_size == old_size)
-        return (old_ptr);
+	if (!ptr)
+		return (malloc(new_size));
+	if (!new_size)
+		return (free(ptr), NULL);
+	if (new_size == old_size)
+		return (ptr);
 
-    new_ptr = malloc(new_size);
-    if (!new_ptr)
-        return (NULL);
+	p = malloc(new_size);
+	if (!p)
+		return (NULL);
 
-    old_size = old_size < new
+	old_size = old_size < new_size ? old_size : new_size;
+	while (old_size--)
+		p[old_size] = ((char *)ptr)[old_size];
+	free(ptr);
+	return (p);
 }
 
 /**
