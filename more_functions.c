@@ -2,11 +2,11 @@
 
 /**
  * interactive - returns true if shell is interactive mode
- * @info: struct address
+ * @details: struct address
  *
  * Return: 1 if interactive mode, 0 otherwise
  */
-int interactive(info_t *info)
+int interactive(details_t *details)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
@@ -108,13 +108,13 @@ int err_str_to_int(char *s)
  * Return: 0 if no numbers in string, converted number otherwise
  *        -1 on error
  */
-void print_error(info_t *info, char *estr)
+void print_error(details_t *details, char *estr)
 {
-	_eputs(info->fname);
+	_eputs(details->fname);
 	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
+	print_d(details->line_count, STDERR_FILENO);
 	_eputs(": ");
-	_eputs(info->argv[0]);
+	_eputs(details->argv[0]);
 	_eputs(": ");
 	_eputs(estr);
 }
@@ -159,7 +159,7 @@ int print_decimal(int input, int fd)
 }
 
 /**
- * convert_num - converter function, a clone of itoa
+ * convert_num - converter function, a clone of str_to_int
  * @num: number
  * @base: base
  * @flags: argument flags
