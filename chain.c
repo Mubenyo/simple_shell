@@ -37,7 +37,7 @@ int chain_delim(details_t *details, char *buff, size_t *m)
 
 /**
  * checking_chain - checks if we should continue chaining based on last status
- * @details: the parameter struct
+ * @d: the parameter struct
  * @buff: the char buffer
  * @m: address of current position in buf
  * @l: starting position in buff
@@ -45,21 +45,21 @@ int chain_delim(details_t *details, char *buff, size_t *m)
  *
  * Return: Void
  */
-void checking_chain(details_t *details, char *buff, size_t *m, size_t l, size_t leng)
+void checking_chain(details_t *d, char *buff, size_t *m, size_t l, size_t leng)
 {
 	size_t h = *m;
 
-	if (details->cmd_buf_type == CMD_AND)
+	if (d->cmd_buf_type == CMD_AND)
 	{
-		if (details->status)
+		if (d->status)
 		{
 			buff[l] = 0;
 			h = leng;
 		}
 	}
-	if (details->cmd_buf_type == CMD_OR)
+	if (d->cmd_buf_type == CMD_OR)
 	{
-		if (!details->status)
+		if (!d->status)
 		{
 			buff[l] = 0;
 			h = leng;
