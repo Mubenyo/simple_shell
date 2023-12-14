@@ -83,7 +83,7 @@ int replacing_alias(details_t *details)
 
 	for (q = 0; q < 10; q++)
 	{
-		node = find_node_starts_with(details->alias, details->argv[0], '=');
+		node = find_node_start(details->alias, details->argv[0], '=');
 		if (!node)
 			return (0);
 		free(details->argv[0]);
