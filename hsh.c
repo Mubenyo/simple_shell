@@ -18,7 +18,7 @@ int hsh(details_t *details, char **argvec)
 		if (interactive(details))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
-		w = get_input(details);
+		w = getting_input(details);
 		if (w != -1)
 		{
 			setting_info(details, argvec);
