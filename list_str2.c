@@ -9,6 +9,7 @@
 size_t list_len(const list_t *h)
 {
 	size_t count = 0;
+	
 	while (h)
 	{
 		h = h->next;
@@ -85,16 +86,16 @@ size_t print_list(const list_t *h)
  *
  * Return: matching node or null
  */
-list_t *find_node_starts_with(list_t *current_node, char *search_prefix, char next_char)
+list_t *find_node_starts_with(list_t *c_node, char *search_prefix, char next_char)
 {
 	char *match_ptr = NULL;
 	
-	while (current_node)
+	while (c_node)
 	{
-		match_ptr = starts_with(current_node->str, search_prefix);
+		match_ptr = starts_with(c_node->str, search_prefix);
 		if (match_ptr && ((next_char == -1) || (*match_ptr == next_char)))
-			return (current_node);
-		current_node = current_node->next;
+			return (c_node);
+		c_node = c_node->next;
 	}
 	return (NULL);
 }
