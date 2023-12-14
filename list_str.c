@@ -10,31 +10,31 @@
  */
 list_t *add_node(list_t **listHead, const char *str, int num)
 {
-    list_t *newNode;
-
-    if (!listHead)
-        return (NULL);
-
-    newNode = malloc(sizeof(list_t));
-    if (!newNode)
-        return (NULL);
-
-    _memset((void *)newNode, 0, sizeof(list_t));
-    newNode->num = num;
-
-    if (str)
-    {
-        newNode->str = _strdup(str);
-        if (!newNode->str)
-        {
-            free(newNode);
-            return (NULL);
-        }
-    }
-
-    newNode->next = *listHead;
-    *listHead = newNode;
-    return (newNode);
+	list_t *newNode;
+	
+	if (!listHead)
+		return (NULL);
+	
+	newNode = malloc(sizeof(list_t));
+	if (!newNode)
+		return (NULL);
+	
+	_memset((void *)newNode, 0, sizeof(list_t));
+	newNode->num = num;
+	
+	if (str)
+	{
+		newNode->str = _strdup(str);
+		if (!newNode->str)
+		{
+			free(newNode);
+			return (NULL);
+		}
+	}
+	
+	newNode->next = *listHead;
+	*listHead = newNode;
+	return (newNode);
 }
 
 
@@ -81,7 +81,7 @@ list_t *add_node_end(list_t **listHead, const char *str, int num)
 
 /**
  * print_str_list - prints only the str element of a str_list_t linked list
- * @listHead: pointer to first node
+ * @h: pointer to first node
  *
  * Return: size of list
  */
