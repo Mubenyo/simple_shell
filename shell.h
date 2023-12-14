@@ -201,16 +201,18 @@ int reading_history(details_t *details);
 int building_history_list(details_t *details, char *buff, int linecount);
 int renumbering_history(details_t *details);
 
-/* liststr.c module */
+/* list_str.c module */
 list_t *add_node(list_t **, const char *, int);
 list_t *add_node_end(list_t **, const char *, int);
 size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
+
+/* list_str2.c module */
 size_t list_len(const list_t *);
 char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
-list_t *find_node_starts_with(list_t *, char *, char);
+list_t *find_node_start(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
 
 /* chain.c */
