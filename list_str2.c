@@ -79,14 +79,14 @@ size_t print_list(const list_t *h)
 }
 
 /**
- * find_node_starts_with - returns node whose string starts with prefix
+ * find_node_start - returns node whose string starts with prefix
  * @c_node: pointer to list head
  * @search_prefix: string to match
  * @next_char: the next character after prefix to match
  *
  * Return: matching node or null
  */
-list_t *find_node_starts_with(list_t *c_node, char *search_prefix, char next_char)
+list_t *find_node_start(list_t *c_node, char *search_prefix, char next_char)
 {
 	char *match_ptr = NULL;
 
