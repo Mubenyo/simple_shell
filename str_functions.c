@@ -49,10 +49,10 @@ int _strcmp(char *s1, char *s2)
  */
 char *starts_with(const char *str, const char *prefix)
 {
-    while (*prefix)
-        if (*prefix++ != *str++)
-            return (NULL);
-    return ((char *)str);
+	while (*prefix)
+		if (*prefix++ != *str++)
+			return (NULL);
+	return ((char *)str);
 }
 
 /**
@@ -64,13 +64,13 @@ char *starts_with(const char *str, const char *prefix)
  */
 char *_strcat(char *destination, char *source)
 {
-    char *result = destination;
-
-    while (*destination)
-        destination++;
-    while (*source)
-        *destination++ = *source++;
-    *destination = *source;
-    
-    return result;
+	char *result = destination;
+	
+	while (*destination)
+		destination++;
+	while (*source)
+		*destination++ = *source++;
+	*destination = *source;
+	
+	return result;
 }
