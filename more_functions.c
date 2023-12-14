@@ -8,7 +8,7 @@
  */
 int interactive(details_t *details)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && details->readfd <= 2);
 }
 
 /**
@@ -112,7 +112,7 @@ void print_error(details_t *details, char *estr)
 {
 	_eputs(details->fname);
 	_eputs(": ");
-	print_d(details->line_count, STDERR_FILENO);
+	print_decimal(details->line_count, STDERR_FILENO);
 	_eputs(": ");
 	_eputs(details->argv[0]);
 	_eputs(": ");
