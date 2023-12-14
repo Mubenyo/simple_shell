@@ -173,7 +173,7 @@ int _ourhistory(details_t *);
 int _ouralias(details_t *);
 
 /* getline.c module */
-ssize_t get_input(details_t *);
+ssize_t getting_input(details_t *);
 int _getline(details_t *, char **, size_t *);
 void signintHandler(int);
 
@@ -214,7 +214,7 @@ list_t *find_node_starts_with(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
 
 /* chain.c */
-int is_chain(details_t *, char *, size_t *);
+int chain_delim(details_t *, char *, size_t *);
 void checking_chain(details_t *, char *, size_t *, size_t, size_t);
 int replacing_alias(details_t *);
 int replacing_vars(details_t *);

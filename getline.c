@@ -69,7 +69,7 @@ ssize_t getting_input(details_t *details)
 		checking_chain(details, buff, &n, m, leng);
 		while (n < leng) /* iterate to semicolon or end */
 		{
-			if (is_chain(details, buff, &n))
+			if (chain_delim(details, buff, &n))
 				break;
 			n++;
 		}
