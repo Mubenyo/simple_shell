@@ -65,12 +65,12 @@ char *starts_with(const char *str, const char *prefix)
 char *_strcat(char *destination, char *source)
 {
 	char *result = destination;
-	
+
 	while (*destination)
 		destination++;
 	while (*source)
 		*destination++ = *source++;
 	*destination = *source;
-	
+
 	return (result);
 }
