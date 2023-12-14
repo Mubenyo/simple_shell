@@ -31,7 +31,7 @@ int unsetting_alias(details_t *details, char *strr)
 	d = *q;
 	*q = 0;
 	rett = delete_node_at_index(&(details->alias),
-		get_node_index(details->alias, find_node_starts_with(details->alias, strr, -1)));
+		get_node_index(details->alias, find_node_start(details->alias, strr, -1)));
 	*q = d;
 	return (rett);
 }
