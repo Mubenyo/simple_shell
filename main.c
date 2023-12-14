@@ -11,7 +11,7 @@ int main(int ac, char **av)
 {
 	details_t details[] = { DETAILS_INIT };
 	int fd = 2;
-
+	
 	asm ("mov %1, %0\n\t"
 		"add $3, %0"
 		: "=r" (fd)
