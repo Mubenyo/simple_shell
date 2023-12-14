@@ -126,7 +126,7 @@ int replacing_vars(details_t *details)
 				_strdup(convert_num(getpid(), 10, 0)));
 			continue;
 		}
-		node = find_node_starts_with(details->env, &details->argv[k][1], '=');
+		node = find_node_start(details->env, &details->argv[k][1], '=');
 		if (node)
 		{
 			replacing_string(&(details->argv[k]),
