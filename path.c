@@ -10,7 +10,7 @@
 int is_command(details_t *info_struct, char *file_path)
 {
 	struct stat file_stat;
-	
+
 	(void)info_struct;
 	if (!file_path || stat(file_path, &file_stat))
 		return (0);
