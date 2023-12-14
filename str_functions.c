@@ -74,25 +74,3 @@ char *_strcat(char *destination, char *source)
     
     return result;
 }
-
-/**
- * _strcpy - copies a string
- * @destination: the destination
- * @source: the source
- *
- * Return: pointer to destination
- */
-char *_strcpy(char *destination, char *source)
-{
-	int index = 0;
-
-	if (destination == source || source == 0)
-		return (destination);
-	while (source[index])
-	{
-		destination[index] = source[index];
-		index++;
-	}
-	destination[index] = 0;
-	return (destination);
-}
