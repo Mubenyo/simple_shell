@@ -42,7 +42,7 @@ list_t *add_node(list_t **listHead, const char *str, int num)
  * add_node_end - adds a node to the end of the list
  * @listHead: address of pointer to head node
  * @str: str field of node
- * @index: node index used by history
+ * @num: node index used by history
  *
  * Return: size of list
  */
@@ -80,7 +80,7 @@ list_t *add_node_end(list_t **listHead, const char *str, int num)
 }
 
 /**
- * print_str_list - prints only the str element of a str_list_t linked list
+ * print_list_str - prints only the str element of a str_list_t linked list
  * @h: pointer to first node
  *
  * Return: size of list
