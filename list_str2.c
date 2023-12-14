@@ -20,7 +20,7 @@ size_t list_len(const list_t *h)
 
 /**
  * list_to_strings - returns an array of strings of the list->str
- * @head: pointer to first node
+ * @h: pointer to first node
  *
  * Return: array of strings
  */
@@ -57,7 +57,7 @@ char **list_to_strings(list_t *h)
 
 /**
  * print_list - prints all elements of a list_t linked list
- * @head: pointer to first node
+ * @h: pointer to first node
  *
  * Return: size of list
  */
@@ -80,7 +80,7 @@ size_t print_list(const list_t *h)
 
 /**
  * find_node_starts_with - returns node whose string starts with prefix
- * @current_node: pointer to list head
+ * @c_node: pointer to list head
  * @search_prefix: string to match
  * @next_char: the next character after prefix to match
  *
