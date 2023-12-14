@@ -13,7 +13,7 @@ char *_memset(char *dest, char ch, unsigned int count)
 	
 	for (i = 0; i < count; i++)
 		dest[i] = ch;
-	return dest;
+	return (dest);
 }
 
 /**
@@ -25,7 +25,7 @@ void _free(char **str_arr)
 	char **temp = str_arr;
 	
 	if (!str_arr)
-        return;
+		return;
 	
 	while (*str_arr)
 		free(*str_arr++);
