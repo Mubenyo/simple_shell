@@ -9,11 +9,11 @@
  */
 char *_memset(char *dest, char ch, unsigned int count)
 {
-    unsigned int i;
-
-    for (i = 0; i < count; i++)
-        dest[i] = ch;
-    return dest;
+	unsigned int i;
+	
+	for (i = 0; i < count; i++)
+		dest[i] = ch;
+	return dest;
 }
 
 /**
@@ -22,13 +22,14 @@ char *_memset(char *dest, char ch, unsigned int count)
  */
 void _free(char **str_arr)
 {
-    char **temp = str_arr;
-
-    if (!str_arr)
+	char **temp = str_arr;
+	
+	if (!str_arr)
         return;
-    while (*str_arr)
-        free(*str_arr++);
-    free(temp);
+	
+	while (*str_arr)
+		free(*str_arr++);
+	free(temp);
 }
 
 
@@ -70,11 +71,11 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
  */
 int freeAndNull(void **ptr)
 {
-    if (ptr && *ptr)
-    {
-        free(*ptr);
-        *ptr = NULL;
-        return (1);
-    }
-    return (0);
+	if (ptr && *ptr)
+	{
+		free(*ptr);
+		*ptr = NULL;
+		return (1);
+	}
+	return (0);
 }
